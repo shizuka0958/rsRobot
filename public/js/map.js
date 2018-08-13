@@ -1,4 +1,4 @@
-app.controller('photoController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+app.controller('mapController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
     // $scope.$on('warn query', function (event, data) {
     //     if (data.err == 0) {

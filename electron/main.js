@@ -15,7 +15,7 @@ let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 1280, height: 720, minWidth: 1280,maxWidth:1280,minHeight:720,maxHeight:720, show: false})
+    mainWindow = new BrowserWindow({ width: 1280, height: 720, minWidth: 1280,maxWidth:1280,minHeight:720,maxHeight:720, show: false,frame:false})
     // show windows after init finish
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
@@ -67,12 +67,7 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-ipcMain.on('select_image', function (event) {
-    console.log('rcv select_image');
-    dialog.showOpenDialog({
-        properties: ['openFile']
-    }, function (files) {
-        if (files)
-            event.sender.send('select_image_finish', files); // asynchronous-message
-    });
+ipcMain.on('closeApp', function () {
+    console.log('RCV closeApp');
+    app.quit();
 });

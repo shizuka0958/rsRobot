@@ -1,3 +1,51 @@
-body{
+body {
     font-family: "pingFangSC-Medium" !important;
+    user-select: none;
+    width: 100%;
+    height: 720px;
+}
+
+#menuBtn .details {
+    position: absolute;
+    top: 20px;
+    left: 65px;
+}
+
+#quitBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    z-index: 99;
+}
+
+#guide {
+    position: absolute;
+    top: 100px;
+    left: -200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+
+#guide ul li {
+    width: 150px;
+    min-height: 50px;
+    font-size: 23px;
+    text-align: center;
+    border: 2px solid #666;
+    margin-top: 20px;
+    padding-top: 7px;
+    color: #339999;
+    border-radius: 10px;
+    background: #eee
+}
+
+#guide ul li a {
+    color: #339999;
+}
+
+#guide ul li:last-child {
+    margin-top: 50px
 }
