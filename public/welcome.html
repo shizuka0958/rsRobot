@@ -20,7 +20,20 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-		border: 3px solid black;
+	}
+	.content{
+		height: 500px;
+		width: 800px;
+		margin: 0 auto;
+		border: 1px solid red;
+	}
+	.content .swiper-container{
+		width: 100%;
+		height: 100%
+	}
+	.content .swiper-slide img{
+		width: 100%;
+		height: 100%;
 	}
 	footer{
 		width: 100%;
@@ -36,7 +49,6 @@
 		right: 0;
 		width: 1000px;
 		height: 100px;
-		border: 1px solid black;
 	}
 </style>
 <div ng-controller="welcomeController" id="welcome">
@@ -45,12 +57,49 @@
    		<div class="topTab">
    		</div>
    </header><!-- /header -->
-   <div class="">
-   	
-   </div>
+   <div class="content">
+   		<div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide"><img src="assets/img/11.jpg" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/22.png" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/11.jpg" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/22.png" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/11.jpg" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/22.png" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/11.jpg" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/22.png" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/11.jpg" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/22.png" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/11.jpg" alt=""></div>
+	            <div class="swiper-slide"><img src="assets/img/22.png" alt=""></div>
+	        </div>
+	        <!-- Add Pagination -->
+	        <div class="swiper-pagination"></div>
+	        <!-- Add Arrows -->
+	        <div class="swiper-button-next"></div>
+	        <div class="swiper-button-prev"></div>
+	    </div>
+	</div>
    <footer>
    	   山东睿思奥图智能科技有限公司
    	   <div class="bottomTab">
    	   </div>
    </footer>
 </div>
+<script>
+var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        autoplay: 2500,
+        loop:true
+    });
+$('.topTab').click(function(){
+	alert('点击了上面')
+})
+$('.bottomTab').click(function(){
+	alert('点击了下面')
+})
+</script>

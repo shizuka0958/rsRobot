@@ -9,19 +9,73 @@
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/css/swiper.min.css">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/index.css">
-
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+       .details{
+            position: absolute;
+            top: 20px;
+            left: 65px;
+        }
+        .quit{
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            width: 40px;
+            height: 40px
+        }
+        #guide{
+            position: absolute;
+            top: 100px;
+            left: -200px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 1px solid black;
+        }
+        ul li{
+            width: 150px;
+            min-height: 50px;
+            font-size: 23px;
+            text-align: center;
+            border: 2px solid #666;
+            margin-top: 20px;
+            padding-top: 7px;
+            color: #339999;
+            border-radius: 10px;
+            background: #eee
+        }
+        ul li a{
+            color: #339999;
+        }
+        ul li:last-child{
+            margin-top: 50px
+        }
+    </style>
 </head>
 
 <body ng-controller="indexController">
     <div id="wrapper">
-        <div ui-view></div>
+        <img src="assets/img/details.png" alt="" style="width:50px;height:50px" class="details" id="d1">
+        <img src="assets/img/details1.png" alt="" style="width:50px;height:50px" class="details hide" id="d2">
     </div>
-   
+    <img src="assets/img/quit.png" alt="" class="quit hide">
+    <div id="guide">
+        <ul>
+             <li><a href="" title="" ui-sref="">展区地图</a></li>
+             <li><a href="" title="">介绍</a></li>
+             <li><a href="" title="">参观</a></li>
+             <li><a href="" title="">资讯</a></li>
+             <li><a href="" title="">数据统计</a></li>
+             <li><a href="" title="">拍照</a></li>
+             <li><a href="" title="">机器人功能演示</a></li>
+         </ul> 
+    </div>
+    <div ui-view></div>
     <!-- Javascript -->
     <script>
         // electron和jquery名称冲突 需要将require重命名
@@ -35,6 +89,7 @@
     <script src="assets/vendor/angularJS/angular-1.4.6.min.js"></script>
     <script src="assets/vendor/angularJS/angular-ui-router.js"></script>
     <script src="assets/vendor/socket.io-client/socket.io.js"></script>
+    <script src="assets/vendor//swiper/js/swiper.min.js"></script>
 
     <script src="js/index.js"></script>
     <script src="js/welcome.js"></script>
@@ -44,6 +99,28 @@
     <script src="js/statistics.js"></script>
     <script src="js/photo.js"></script>
     <script src="js/demo.js"></script>
+    <script>
+        var temp = 1;
+        $('.details').click(function(){
+            if(temp==1){
+                $('#d1').addClass('hide');
+                $('#d2').removeClass('hide');
+                $('.quit').removeClass('hide');
+                $('#guide').animate({"left":"0px"},500)
+                temp = 2;
+            }else{
+                $('#d2').addClass('hide');
+                $('#d1').removeClass('hide');
+                $('.quit').addClass('hide');
+                $('#guide').animate({"left":"-200px"},500)
+                temp = 1;
+            }
+        })
+        $('#guide ul li').click(function(){
+             $('#guide ul li').css('background','#eee')
+            $(this).css('background','yellow')
+        })
+    </script>
 </body>
 
 </html>
