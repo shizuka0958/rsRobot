@@ -15,10 +15,11 @@ let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 1280, height: 720, minWidth: 1280,maxWidth:1280,minHeight:720,maxHeight:720, show: false })
+    mainWindow = new BrowserWindow({ width: 1280, height: 720, minWidth: 1280,maxWidth:1280,minHeight:720,maxHeight:720, show: false})
     // show windows after init finish
     mainWindow.once('ready-to-show', () => {
-        mainWindow.show()
+        mainWindow.show();
+        mainWindow.maximize();
     })
 
     // and load the index.html of the app.
