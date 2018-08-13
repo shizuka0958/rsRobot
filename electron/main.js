@@ -15,20 +15,20 @@ let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 1100, height: 600 ,minWidth:0,show:false})
+    mainWindow = new BrowserWindow({ width: 1100, height: 600, minWidth: 0, show: false })
     // show windows after init finish
     mainWindow.once('ready-to-show', () => {
         mainWindow.show()
     })
 
     // and load the index.html of the app.
-    //   mainWindow.loadURL(url.format({
-    //     pathname: path.join(__dirname, '../public/index.html'),
-    //     protocol: 'file:',
-    //     slashes: true
-    //   }))
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, '../public/index.html'),
+        protocol: 'file:',
+        slashes: true
+    }))
 
-    mainWindow.loadURL('http://localhost:8080/index.html')
+    // mainWindow.loadURL('http://localhost:8080/index.html')
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
